@@ -1,0 +1,13 @@
+version: '3'
+services:
+  my-react-services:
+    build:                     # 新增的部分，指定如何構建映像
+      context: .               # 指定 Dockerfile 所在的上下文目錄，這裡是當前目錄
+      dockerfile: Dockerfile.dev   # 指定使用的 Dockerfile 名稱
+    volumes:
+      - .:/app                 # 掛載當前目錄到容器的 /app
+      - /app/node_modules      # 建立一個匿名的卷，讓 node_modules 資料夾不會被 host 覆蓋
+    ports:
+      - '3000:5173'            # 映射容器的 5173 端口到主機的 3000 端口
+    command: pnpm run dev      # 容器啟動後要執行的命令
+    restart: always            # 容器退出時的重啟策略
