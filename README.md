@@ -9,8 +9,9 @@ docker build -t my-react:dev .
 ```
 
 ```
-docker run --name my-react-container3000 -d -p 3000:5173 my-react:dev
+docker run  -v ./src:/app/src --name my-react-container3000 -d -p 3000:5173 my-react:dev
 
+# 將主機的當前目錄下的 src 目錄掛載到容器的 /app/src 目錄
 # 使用 'docker run' 命令來運行名為 'my-react:dev' 的映像
 # '--name' 給創建的容器指定一個名稱 'my-react-container3000'
 # '-d' 選項讓容器在後臺運行
