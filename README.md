@@ -2,7 +2,7 @@
 在這個 branch 的終端機介面輸入以下指令
 
 ```
-docker build -t my-react:dev .
+docker build -f Dockerfile.dev -t my-react:dev .
 
 # 使用 Dockerfile 在當前目錄(.)構建一個名為 'my-react:dev' 的 Docker 映像
 # '-t' 選項用於為映像指定一個標籤名稱
